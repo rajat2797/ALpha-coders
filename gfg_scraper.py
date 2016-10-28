@@ -1,14 +1,14 @@
 from bs4 import BeautifulSoup as bs
 import urllib, requests
 
-r=requests.get('http://www.geeksforgeeks.org/fundamentals-of-algorithms/')
-soup=bs(r.text,'lxml')
+req=requests.get('http://www.geeksforgeeks.org/fundamentals-of-algorithms/')
+soup=bs(req.text,'lxml')
 data=soup.find_all('div',{ 'class' : 'entry-content' } )
 li = data[0].find_all('li')
 arr=[]
-for i in li:
-	link = i.find('a').get('href')
-	t=i.text
+for j in li:
+	link = j.find('a').get('href')
+	t=j.text
 	arr.append([link,t])
 
 l=[]
